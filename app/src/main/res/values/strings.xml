@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Android Blackjack</string>
+    <string name="action_historique_titre">Historique</string>
+    <string name="btn_encore_label">Encore une carte</string>
+    <string name="btn_stop_label">C\'est bon, merci</string>
+    <string name="title_activity_resultat">Resultat</string>
+    <string name="victoire">Victoire !</string>
+    <string name="nul">Egalité parfaite</string>
+    <string name="defaite">Perdu…</string>
+    <string name="dialog_fin_partie_message">Que voulez-vous faire ?</string>
+    <string name="dialog_fin_partie_rejouer">Rejouer</string>
+    <string name="dialog_fin_partie_arreter">Arreter</string>
+    <string name="demander_une_carte_svp">Demander une carte pour commencer</string>
+    <string name="btn_voir_resultat_label">Voir résultat</string>
+    <string name="banque_attend_son_tour">La banque attend son tour</string>
+    <string name="title_activity_tirage_carte">Faites vos jeux</string>
+</resources>
