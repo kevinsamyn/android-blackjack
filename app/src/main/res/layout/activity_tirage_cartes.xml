@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.TirageCartesActivity"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    tools:context=".activities.TirageCartesActivity">
 
     <TextView
         android:id="@+id/pointsJoueurText"
@@ -23,17 +23,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        app:layout_constraintTop_toBottomOf="@id/pointsJoueurText"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/pointsJoueurText">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/cartesJoueurRV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            tools:listitem="@layout/item_carte"
             app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-            />
+            tools:listitem="@layout/item_carte" />
     </HorizontalScrollView>
 
     <TextView
@@ -52,16 +52,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        app:layout_constraintTop_toBottomOf="@id/pointsDonneurText"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/pointsDonneurText">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/cartesDonneurRV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            tools:listitem="@layout/item_carte"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_carte" />
     </HorizontalScrollView>
 
 
@@ -69,25 +70,25 @@
         android:id="@+id/encoreBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
-        android:text="@string/btn_encore_label"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="8dp"
         android:background="@android:color/transparent"
-        android:textColor="@android:color/white"/>
+        android:text="@string/btn_encore_label"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/stopBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/btn_stop_label"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp"
         android:background="@android:color/transparent"
-        android:textColor="@android:color/white"/>
+        android:text="@string/btn_stop_label"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

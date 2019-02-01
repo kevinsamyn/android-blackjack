@@ -18,7 +18,9 @@ import java.util.List;
 import fac.calais.androidblackjack.R;
 import fac.calais.androidblackjack.adapters.CarteRecyclerViewAdapter;
 import fac.calais.androidblackjack.beans.Carte;
+import fac.calais.androidblackjack.beans.Resultat;
 import fac.calais.androidblackjack.enums.CouleurCarteEnum;
+import fac.calais.androidblackjack.sqlite.BlackjackResultatService;
 
 /**
  * Cette activité permet de faire le tirage des cartes du joueur et de la banque
@@ -177,9 +179,9 @@ public class TirageCartesActivity extends AppCompatActivity {
         mEncoreBtn.setVisibility(View.INVISIBLE);
 
         // On tire les cartes du donneur
-        if(mCartesDonneur.isEmpty()) {
+        if (mCartesDonneur.isEmpty()) {
             tirerCartesBanque();
-        }else if(sommePoints(mCartesDonneur) >= 17){
+        } else if (sommePoints(mCartesDonneur) >= 17) {
             lancerResultatActivity();
         }
     }
@@ -223,25 +225,42 @@ public class TirageCartesActivity extends AppCompatActivity {
                     }
                 });
 
-                if(sommePoints(mCartesDonneur)<17){
+                if (sommePoints(mCartesDonneur) < 17) {
                     tirerCartesBanque();
-                }else{
+                } else {
 
                     TirageCartesActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             mStopBtn.setText(R.string.btn_voir_resultat_label);
                             mStopBtn.setVisibility(View.VISIBLE);
+
+                            enregistrerResultat();
                         }
                     });
 
                 }
 
-
-
             }
         }).start();
 
 
+    }
+
+    /**
+     * Enregistrement du résultat dans la base de données
+     * <p>
+     * On enregistrera :
+     * <ul>
+     * <li>Le score du joueur</li>
+     * <li>Le score du donneur</li>
+     * </ul>
+     * </p>
+     */
+    private void enregistrerResultat() {
+        final BlackjackResultatService service = new BlackjackResultatService(TirageCartesActivity.this);
+        service.open();
+        service.insert(new Resultat(sommePoints(mCartesDonneur), sommePoints(mCartesJoueur)));
+        service.close();
     }
 }

@@ -3,7 +3,7 @@ package fac.calais.androidblackjack.beans;
 /**
  * Représente un résultat enregistré en base de données
  */
-public class Resultat implements Comparable<Resultat>{
+public class Resultat implements Comparable<Resultat> {
 
     private Integer id;
     private Integer scoreDonneur;

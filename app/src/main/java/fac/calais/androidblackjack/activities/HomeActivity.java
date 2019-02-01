@@ -41,4 +41,39 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+
+    /**
+     * Création et affichage du menu dans la topbar
+     *
+     * @param menu de l'activité
+     * @return boolean
+     */
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_home, menu);
+        return true;
+    }
+
+    /**
+     * Methode permettant de définir le comportement de chaque item du menu
+     *
+     * @param item cliqué
+     * @return boolean
+     */
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        // On récupère l'id de l'item cliqué
+        // Cet id correspond à l'attribut android:id défini dans menu_home.xml
+        int id = item.getItemId();
+
+        // On traite les différents id. Ici nous n'en avons qu'un
+        switch (id) {
+            case R.id.menu_home_historique:
+                final Intent i = new Intent(HomeActivity.this, HistoriqueActivity.class);
+                startActivity(i);
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }
